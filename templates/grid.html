@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Edit</title>
+      <link rel="stylesheet" href="static/st.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <!-- Font Awesome CSS -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300|Cinzel+Decorative:700" rel="stylesheet" type="text/css">
+
+      <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+      <!--
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.structure.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/theme.min.css">
+
+      <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+		  <link rel="stylesheet" href="/resources/demos/style.css">
+		  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+  		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    	-->
+  </head>
+
+<body >
+
+  <script>
+    function upload()
+    {
+
+    }
+    function changedescription(id)
+    {
+
+		var desc={"cursor":"This is a Cursor.", "rec_s":"This is a Rectangle Selection.", "cir_s":"This is a Circle Selection.", "crop":"This is a Crop tool.", "blur":"This is a blur Selection.", "rotate":"This is a Rotate Selection.", "gray_s":"This is a Grayscale Selection.", "inversion":"This is a Inversion Selection.", "sharpen":"This is a Sharpen Selection.", "flip":"This is a Flip Selection.", "resize":"This is a Resize Selection.", "rec":"This is a Rectangle Selection.", "sq":"This is a Square Selection.", "lines":"This is a Lines Selection."};
+
+		$("#description").html(desc[id]);
+		//var change=document.getElementById("description");
+		//change.innerHTML=desc[id];//jit//navigated.user
+		//console.log(navigator.userAgent)
+		//VM1086:1 Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.97 Safari/537.36
+
+		var console_msg=id+" active.";
+		console.log(console_msg);
+
+		$(".tool_options").hide();
+
+		var tool_options_ids=
+        {"cursor":"#cursor_opt", "rec_s":"#rec_s_opt", "cir_s":"#cir_s_opt", "crop":"#crop_opt", "blur":"#blur_opt", "rotate":"#rotate_opt", "gray_s":"#gray_s_opt", "inversion":"#inversion_opt", "sharpen":"#sharpen_opt", "flip":"#flip_opt", "resize":"#resize_opt", "rec":"#rec_opt", "sq":"#sq_opt", "lines":"#lines_opt"
+        };
+
+        if (id in tool_options_ids) {
+      	  $(tool_options_ids[id]).show();
+
+        }
+    }
+
+/*
+    $(document).ready(function(){
+    $(".tool_options").hide();
+    });
+
+
+      if(id=="cursor"){
+        change.innerHTML="This is a Cursor.";
+        $('#cursor_opt').show();
+      }
+      else if(id=="rec_s"){
+        change.innerHTML="This is a Rectangle Selection.";
+        $('#rec_s_opt').show();
+      }
+      else if (id=="cir_s") {
+        change.innerHTML="This is a Circle Selection.";
+      }
+      else if (id=="crop") {
+        change.innerHTML="This is a Crop tool.";
+      }
+      else if (id=="blur") {
+        change.innerHTML="This is a blur Selection.";
+      }
+      else if (id=="rotate") {
+        change.innerHTML="This is a Rotate Selection.";
+      }
+      else if (id=="gray_s") {
+        change.innerHTML="This is a Grayscale Selection.";
+      }
+      else if (id=="inversion") {
+        change.innerHTML="This is a Inversion Selection.";
+      }
+      else if (id=="sharpen") {
+        change.innerHTML="This is a Sharpen Selection.";
+      }
+      else if (id=="flip") {
+        change.innerHTML="This is a Flip Selection.";
+      }
+      else if (id=="resize") {
+        change.innerHTML="This is a Resize Selection.";
+      }
+      else if (id=="rec") {
+        change.innerHTML="This is a Rectangle Selection.";
+      }
+      else if (id=="sq") {
+        change.innerHTML="This is a Square Selection.";
+      }
+      else if (id=="lines") {
+        change.innerHTML="This is a Lines Selection.";
+      }
+*/
+
+  </script>
+
+  <div class="grid-container">
+
+<!--TITLE BAR-->
+      <div class="title">
+        <div class="btn-group" >
+                <a href="index.html">
+                  <button style="width: 60px; height: 50px; padding: 10px;">
+                  <i class="fa fa-home fa-2x"></i>
+                  </button>
+                </a>
+
+                <button style="width: 139px; height: 50px;" id="upload" onclick="upload()">
+                  MY PHOTOS
+                <i class="fa fa-plus fa-lg" aria-hidden="true" style="margin-left: 10px"></i>
+                </button>
+
+                <button style="width: 300px; height: 50px;border-left:1px solid black;">
+                   <input type="text" name="url" style="width: 230px">
+                   <input type="submit" value="GO">
+               </button>
+
+               <div class="title_blank">
+               </div>
+
+               <button style="width: 200px; height: 50px;border-left:0px;border-top:1px solid black;">
+                 <b style="text-align:center;font-size: 17px;">SAVE</b>
+                 <i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i>
+               </button>
+
+         </div>
+      </div>
+
+
+<!--TOOL BAR-->
+      <div class="tool">
+        <div class="text-center">
+          <div class="btn-group btn-group-toggle" data-toggle="buttons" style="height: 50px; width: 966px;">
+
+            <label class="btn btn-primary" style="border-radius:0px;"id="cursor" onclick="changedescription(id)" title="Cursor">
+              <input type="radio" name="options" autocomplete="off">
+              <span class="iconify" data-icon="openmoji:cursor" data-inline="false" ></span>
+            </label>
+
+            <label class="btn btn-primary" id="rec_s" onclick="changedescription(id)" title="Rectangular Selection">
+              <input type="radio" name="options" autocomplete="off">
+              <span class="iconify" data-icon="vaadin:area-select" data-inline="false" ></span>
+            </label>
+
+            <label class="btn btn-primary" id="cir_s" onclick="changedescription(id)" title="Circular Selection">
+              <input type="radio" name="options" autocomplete="off" >
+              <span class="iconify" data-icon="mdi:selection-ellipse-arrow-inside" data-inline="false"></span>
+            </label>
+
+            <label class="btn btn-primary" id="crop" onclick="changedescription(id)" title="Crop">
+              <input type="radio" name="options" autocomplete="off" >
+              <i class="fa fa-crop fa-2x"></i>
+              </label>
+
+            <label class="btn btn-primary" id="blur" onclick="changedescription(id)" title="Blur">
+              <input type="radio" name="options" autocomplete="off" >
+              <i class="fa fa-tint fa-2x" style="width: 40px" ></i>
+            </label>
+
+            <label class="btn btn-primary" id="rotate" onclick="changedescription(id)" title="Rotate">
+              <input type="radio" name="options" autocomplete="off">
+               <i class="fa fa-repeat fa-2x" ></i>
+            </label>
+
+            <label class="btn btn-primary" id="gray_s" onclick="changedescription(id)" title="Grayscale">
+              <input type="radio" name="options" autocomplete="off" >
+              <span class="iconify" data-icon="ls:grayscale" data-inline="false"></span>
+            </label>
+
+            <label class="btn btn-primary" id="inversion" onclick="changedescription(id)" title="Inversion">
+              <input type="radio" name="options" autocomplete="off" >
+              <span class="iconify" data-icon="whh:invert" data-inline="false"></span>
+            </label>
+
+            <label class="btn btn-primary" id="sharpen" onclick="changedescription(id)" title="Sharpen">
+              <input type="radio" name="options" autocomplete="off" >
+              <span class="iconify" data-icon="mdi:contrast-box" data-inline="false"></span>
+            </label>
+
+            <label class="btn btn-primary" id="flip" onclick="changedescription(id)" title="Flip">
+              <input type="radio" name="options" autocomplete="off" >
+              <span class="iconify" data-icon="gridicons:flip-vertical" data-inline="false" data-rotate="180deg"></span>
+            </label>
+
+            <label class="btn btn-primary" id="resize" onclick="changedescription(id)" title="Resize">
+              <input type="radio" name="options" autocomplete="off" >
+              <span class="iconify" data-icon="icons8:resize-four-directions" data-inline="false"></span>
+            </label>
+
+            <label class="btn btn-primary" id="rec" onclick="changedescription(id)" title="Rectangle">
+              <input type="radio" name="options" autocomplete="off">
+              <span class="iconify" data-icon="cil:rectangle" data-inline="false"></span>
+            </label>
+
+            <label class="btn btn-primary" id="sq" onclick="changedescription(id)" title="Square">
+              <input type="radio" name="options" autocomplete="off">
+              <span class="iconify" data-icon="bx:bx-square-rounded" data-inline="false"></span>
+            </label>
+
+            <label class="btn btn-primary" style="border-radius:0px "id="lines" onclick="changedescription(id)" title="Lines">
+              <input type="radio" name="options" autocomplete="off">
+              <span class="iconify" data-icon="ic:round-line-weight" data-inline="false"></span>
+            </label>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="fr1"></div>
+    <div class="fr2"></div>
+    <div class="fr3"></div>
+    <div class="fr4"></div>
+    <!--div class="text-center"-->
+
+
+      <!--Tool Options-->
+      <div class="opt"><!--container required-->
+
+          <div class="tool_options" id="cursor_opt">CURSOR </div>
+
+          <div class="tool_options" id="rec_s_opt">RECTANGLE SELECT</div>
+
+          <div class="tool_options" id="cir_s_opt">CIRCLE SELECT</div>
+
+          <div class="tool_options" id="crop_opt">CROP
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" style="margin-left:100px;">
+              <label class="btn btn-primary" title="1:1" style="width: 100px;padding:10px;border-radius:1px solid cyan;">
+                  <input type="radio" name="options" autocomplete="off">
+                  <b>1:1</b><div class="rectangle1">
+
+                  </div>
+              </label>
+              <label class="btn btn-primary" title="16:9" style="width: 100px;padding:10px;border-radius:1px solid cyan;">
+                  <input type="radio" autocomplete="off">
+                  <b>16:9</b><div class="rectangle2">
+
+                  </div>
+              </label>
+              <label class="btn btn-primary" title="3:4" style="width: 100px;padding:10px;border-radius:1px solid cyan;">
+                  <input type="radio" autocomplete="off">
+                  <b>3:4</b><div class="rectangle3">
+
+                  </div>
+              </label>
+            </div>
+
+
+
+
+          </div>
+
+          <div class="tool_options" id="blur_opt">BLUR<div id="blur_slider"></div></div>
+
+          <div class="tool_options" id="rotate_opt">ROTATE<button style="margin-left:40px;border:1px solid cyan;border-radius:10px;font-weight:bold;width:130px;">RIGHT<span class="iconify" data-icon="dashicons:image-rotate-right" data-inline="false"></span></button><button style="margin-left:40px;border:1px solid cyan;border-radius:10px;font-weight:bold;width:130px;">LEFT<span class="iconify" data-icon="dashicons:image-rotate-left" data-inline="false"></span></button></div>
+
+          <div class="tool_options" id="gray_s_opt">GRAYSCALE<div id="gray_slider"></div></div>
+
+          <div class="tool_options" id="inversion_opt">INVERSION<div id="invert_slider"></div></div>
+
+          <div class="tool_options" id="sharpen_opt">SHARPEN<div id="sharpen_slider"></div></div>
+
+          <div class="tool_options" id="flip_opt">FLIP<button style="margin-left:40px;border:1px solid cyan;border-radius:10px;width:200px;font-weight:bold;">VERTICAL<span class="iconify" data-icon="mdi:flip-vertical" data-inline="false"></span></button><button style="margin-left:40px;border:1px solid cyan;border-radius:10px;width:200px;font-weight:bold;">HORIZONTAL<span class="iconify" data-icon="mdi:flip-horizontal" data-inline="false"></span></button></div>
+
+          <div class="tool_options" id="resize_opt">RESIZE</div>
+
+          <div class="tool_options" id="rec_opt">RECTANGLE</div>
+
+          <div class="tool_options" id="sq_opt">SQUARE</div>
+
+          <div class="tool_options" id="lines_opt">LINES</div>
+
+      </div>
+
+      <!--Action Head-->
+      <div class="act text-center">
+        <div class="a" style="padding:10px;text-align:center;">
+          <b>ACTIONS</b>
+      </div>
+      </div>
+
+	  <!--GALLERY head-->
+      <div class="gal">
+        <div class="a" style="padding:10px;text-align:center">
+          <b>GALLERY</b>
+      </div>
+      </div>
+
+	<!--GALLERYcontent-->
+      <div class="photo">
+        <img src="https://images.pexels.com/photos/240222/pexels-photo-240222.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="width:199px;height:120px"><br>
+        <img src="https://images.pexels.com/photos/409701/pexels-photo-409701.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style="width:199px;height:120px"><br>
+        <img src="https://images.pexels.com/photos/1194713/pexels-photo-1194713.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" style="width:199px;height:120px"><br>
+        <img src="https://images.pexels.com/photos/531602/pexels-photo-531602.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" style="width:199px;height:120px">
+        </div>
+
+
+	<!--Workspace-->
+      <div class="work">
+        {% if filename %}
+        <h1>some text <img src="{{ url_for('send_file', filename=filename) }}">more text!</h1>
+        {% else %}
+        <h1>no image for whatever reason</h1>
+        {% endif %}
+      <!--img src="https://images.pexels.com/photos/611328/pexels-photo-611328.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" style="height:257px;width:468px;margin-left:233px;margin-right:233px;margin-top:144px"-->
+      </div>
+
+
+	<!--ACTION content-->
+      <div class="action">
+        <div class="btn-group btn-group-toggle" data-toggle="buttons" style="height:50px;width:199px;">
+          <label class="btn btn-primary" title="Undo" style="width: 60px;padding:10px;border-radius:0px;">
+              <input type="radio" name="options" autocomplete="off">
+              <b>UNDO</b>
+          </label>
+          <label class="btn btn-primary" title="Redo" style="width: 60px;padding:10px;border-radius:0px;">
+              <input type="radio" autocomplete="off">
+              <b>REDO</b>
+          </label>
+        </div>
+        <div class="a" style="padding:10px;text-align:center">
+          <b>ACTION 1</b><br>
+          <b>ACTION 2</b><br>
+          <b>ACTION 3</b><br>
+        </div>
+
+      </div>
+
+	<!--DESCRIPTION-->
+      <div class="des">
+        <div class="a" style="padding:10px;text-align:center">
+          <b>DESCRIPTION</b>
+          <p id="description" style="color: white;"></p>
+        </div>
+
+      </div>
+</div>
+
+
+<script>
+	$(document).ready(function(){
+    $("#blur_slider").slider();
+    });
+  $(document).ready(function(){
+      $("#gray_slider").slider();
+      });
+  $(document).ready(function(){
+        $("#invert_slider").slider();
+        });
+  $(document).ready(function(){
+          $("#sharpen_slider").slider();
+          });
+
+
+</script>
+    </body>
+</html>
